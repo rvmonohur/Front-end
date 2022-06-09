@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Number Guessing</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Spicy+Rice" rel="stylesheet">
+</head>
+
+<body>
+    <section class="overlay">
+        <h1>Guess the right number!</h1>
+        <form action="check.html" method="GET">
+
+            <label for="guess">Enter a number between 1-10:</label>
+            <br>
+
+            <!-- 1. Requiring an input -->
+            <input type="number" name="guess" id="guess" required>
+            <br>
+
+            <label for="guess">Test min and max</label>
+            <!-- 2. Set a minimum and maximum -->
+            <input type="number" name="guess" id="guess" required min="1" max="10" value="5">
+            <br>
+
+            <!-- 3. Checking Text Length -->
+            <label for="username">Username:</label>
+            <br>
+            <input id="username" name="username" type="text" required minlength="3" maxlength="15">
+            <br>
+
+            <label for="pw">Password:</label>
+            <br>
+            <input id="pw" name="pw" type="password" required minlength="8" maxlength="15">
+            <br>
+
+
+            <!-- Matching a pattern -->
+
+            <!-- checks that the user provided only numbers and that they entered at least 14 digits and at most 16 digits. -->
+            <label for="payment">Credit Card Number (no spaces):</label>
+            <br>
+            <input id="payment" name="payment" type="text" required pattern="[0-9]{14,16}">
+
+
+            <!-- limit usernames to only letters and numbers (and not special characters like ! or @). -->
+            <label for="username">Username:</label>
+            <br>
+            <!--Add the pattern attribute to the input below-->
+            <input id="username" name="username" type="text" required minlength="3" maxlength="15"
+                pattern="[a-zA-Z0-9]+">
+            <br>
+            <input type="submit" id="submission" value="Submit">
+        </form>
+    </section>
+</body>
+
+</html>

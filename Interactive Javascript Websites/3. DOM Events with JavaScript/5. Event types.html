@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Nunito';
+    }
+
+    img {
+      width: 200px;
+      display: block;
+      margin: 0 auto;
+      padding-top: 10px;
+      margin-bottom: 30px;
+    }
+
+    #container {
+      margin: 0;
+      width: 100vw;
+      height: 600px;
+      background: #fd4d3f;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 30px;
+      width: 450px;
+      text-align: center;
+      margin: 0 auto;
+      margin-bottom: 100px;
+      color: #141c3a;
+    }
+
+    p {
+      font-size: 20px;
+      width: 400px;
+      text-align: center;
+      font-weight: 400;
+      margin: 0 auto;
+      margin-bottom: 30px;
+      color: white;
+    }
+
+    #color-button {
+      width: 350px;
+      height: 100px;
+      border: none;
+      font-size: 24px;
+      background-color: #141c3a;
+      color: white;
+      display: block;
+      margin: 0 auto;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 5px;
+      font-family: 'Nunito';
+
+    }
+
+    #next-button {
+      width: 350px;
+      height: 100px;
+      border: none;
+      font-size: 24px;
+      background-color: #141c3a;
+      color: white;
+      display: block;
+      margin: 0 auto;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: 'Nunito';
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+</head>
+
+<body>
+  <section id='container'>
+    <img src='http://pngimg.com/uploads/rainbow/rainbow_PNG5580.png' />
+    <h1>Random Color Generator</h1>
+    <p>Find your new favorite color!</p>
+
+    <button id='color-button'>Pick a Color</button>
+
+    <button id='next-button'>Mystery Color</button>
+  </section>
+
+  <script>
+    // This variable stores the "Pick a Color" button
+    let button = document.getElementById('color-button');
+
+    // This variable stores the "Mystery Color" button
+    let mysteryButton = document.getElementById('next-button');
+
+    // This random number function will create color codes for the randomColor variable
+    function colorValue() {
+      return Math.floor(Math.random() * 256);
+    }
+
+    function colorChange(event) {
+      let randomColor = 'rgb(' + colorValue() + ',' + colorValue() + ',' + colorValue() + ')';
+      
+      /** event.target */
+      event.target.style.backgroundColor = randomColor;
+
+      document.getElementById('container').style.backgroundColor = randomColor;
+
+    }
+
+    button.addEventListener('click', colorChange);
+
+    mysteryButton.addEventListener('wheel', colorChange)
+
+  </script>
+
+</body>
+
+</html>

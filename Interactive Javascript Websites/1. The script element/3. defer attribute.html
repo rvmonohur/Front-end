@@ -1,0 +1,54 @@
+<!DOCTYPE html> 
+<html>
+ 
+  <head>
+    <style>
+        body {
+        background-color: white;
+        font-family: 'Raleway', sans-serif;
+        }
+
+        p {
+        text-align: center;
+        font-size: 10vw; 
+        top: 40%;
+        left: 50%; 
+        position: absolute; 
+        transform: translateX(-50%) translateY(-50%);
+        }
+    </style>
+
+
+    <!-- 
+
+    The defer attribute specifies scripts should be executed after the HTML file is completely parsed. 
+    When the HTML parser encounters a <script> element with the defer attribute, 
+    it loads the script but defers the actual execution of the JavaScript until after it finishes parsing the rest of the elements in the HTML file.
+
+
+    When is defer useful?
+    
+    When a script contains functionality that requires interaction with the DOM, 
+    the defer attribute is the way to go. 
+    This way, it ensures that the entire HTML file has been parsed before the script is executed.
+    -->
+    <script src="./3. defer script.js" defer> </script>
+<!-- 
+    <script defer>
+      const elemLogo = document.getElementById('logo');
+      elemLogo.style.color = 'cyan';
+    </script> -->
+
+  </head>
+
+  <body>		
+      
+  	<p class="centered" id="logo">Codecademy</p>
+
+  	<script>
+        const elem = document.getElementById('logo');
+        elem.style.color = 'yellow';
+    </script>
+
+  </body>
+</html>

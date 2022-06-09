@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="./3. Tables Styling.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h1>Spanning Columns</h1>
+
+        <table>
+            <tr>
+              <th>Monday</th>
+              <th>Tuesday</th>
+              <th>Wednesday</th>
+            </tr>
+            <tr>
+              <td colspan="2">Out of Town</td>
+              <td>Back in Town</td>
+            </tr>
+          </table>
+          
+
+          <h1>Spanning Rows</h1>
+          <table>
+            <tr> <!-- Row 1 -->
+              <th></th>
+              <th>Saturday</th>
+              <th>Sunday</th>
+            </tr>
+            <tr> <!-- Row 2 -->
+              <th>Morning</th>
+              <td rowspan="2">Work</td>
+              <td rowspan="3">Relax</td>
+            </tr>
+            <tr> <!-- Row 3 -->
+              <th>Afternoon</th>
+            </tr>
+            <tr> <!-- Row 4 -->
+              <th>Evening</th>
+              <td>Dinner</td>
+            </tr>
+
+            <tr>
+                <th>Rowspan</th>
+                <td rowspan="2">Finish</td>
+                <td>Hey</td>
+            </tr>
+            <tr>
+                <th>Weekend</th>
+                <td>Rest</td>
+            </tr>
+          </table>
+
+          <table>
+            <tr>
+              <th>Company Name</th>
+              <th>Number of Items to Ship</th>
+              <th>Next Action</th>
+            </tr>
+            <tr>
+              <td colspan = "2">Adam's Greenworks</td>
+              <td>14</td>
+            </tr>
+            <tr>
+              <td>Davie's Burgers</td>
+              <td>2</td>
+              <td>Send Invoice</td>
+            </tr>
+            <tr>
+              <td>Baker's Bike Shop</td>
+              <td>3</td>
+              <td>Send Invoice</td>
+            </tr>
+            <tr>
+              <td>Miss Sally's Southern</td>
+              <td>4</td>
+              <td>Ship</td>
+            </tr>
+            <tr>
+              <td rowspan = "2">Summit Resort Rentals</td>
+              <td>4</td>
+              <td>Ship</td>
+            </tr>
+            <tr>
+              <!-- <td>Strike Fitness</td> -->
+              <td>1</td>
+              <td>Enter Order</td>
+            </tr>
+          </table>
+    </body>
+</html>

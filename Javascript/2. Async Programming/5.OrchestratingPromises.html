@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        /** Promise.all 
+         * 
+         * If you need to synchronize different promises, Promise.all() helps you define a list of promises, 
+         * and execute something when they are all resolved.
+         * 
+        */
+
+        function getCountryDetails(countryName){
+           return fetch(`https://restcountries.com/v2/name/${countryName}`)
+            .then(response => {
+                if (!response.ok){
+                    return
+                }
+                return response.json()
+            })
+            .then(data => data[0])
+            .catch(err => {
+                throw new Error("hey there")
+            })
+        }
+
+        Promise.all([getCountryDetails("spain"), getCountryDetails("portugal")])
+        .then(res => console.log("res ", res))
+        .catch(err => console.log("err fn", err))
+        .finally(f => console.log("finally -+- ")); 
+    </script>
+    
+
+
+    <script>
+
+        /** Promise.race 
+         * 
+         * Promise.race() runs when the first of the promises you pass to it settles (resolves or rejects), 
+         * and it runs the attached callback just once, with the result of the first promise settled.
+         * 
+        */
+
+        const first = new Promise((resolve, reject) => {
+            setTimeout(()=>{
+                resolve("first")
+            }, 500)
+        });
+
+        const second = new Promise((resolve,reject)=>{
+            setTimeout(reject,100,"second rej")
+        })
+
+        Promise.race([first,second])
+        .then(result => console.log(result))
+        .catch(err => console.log("err ", err))
+
+    </script>
+
+
+
+
+    <script>
+        /** Promise.any 
+         * 
+         * settles when any of the promises you pass to it fulfill or all of the promises get rejected. 
+         * It returns a single promise that resolves with the value from the first promise that is fulfilled. 
+         * 
+         * If all promises are rejected, then the returned promise is rejected with an AggregateError.
+         * 
+         */
+
+         const getFirst = new Promise((resolve, reject) =>{
+             setTimeout(reject,1200, "rejected..any")
+         })
+
+         const getSecond = new Promise((resolve, reject) =>{
+             setTimeout(resolve,1000, "resolve..any")
+         })
+
+         const getThird= new Promise((resolve, reject) =>{
+             setTimeout(resolve,100, "third resolve..any")
+         })
+
+         const getFourth = (function(){
+            return new Promise(function(resolve,reject){
+                setTimeout(resolve,200,"fourth..")
+            })
+         })(); 
+
+         console.log("getThird ", getThird);
+         console.log("getFourth ", getFourth);
+
+         Promise.any([getFirst, getSecond, getThird])
+         .then(suc => console.log("any suc ... ", suc))
+         .catch(err => console.log("any... ", err));
+
+    </script>
+
+</body>
+</html>

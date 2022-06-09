@@ -1,0 +1,31 @@
+<!DOCTYPE html> 
+<html> 
+  <head>
+    <style>
+        p {
+            font-size: 40px;
+            margin: 0 auto;
+            width: 400px;
+        }
+    </style>
+  </head>
+
+  <body>
+    <p id="logo">Codecademy</p>
+
+    <!-- 
+        Additionally, scripts are loaded sequentially, so if one script depends on another script, 
+        they should be placed in that very order inside the HTML file.
+
+     -->
+
+    <script>
+        let newColor = 'blue';
+    </script>
+
+    <script>
+        document.getElementById('logo').style.color = newColor;
+    </script>
+
+  </body>
+</html>

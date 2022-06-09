@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Daily Fortune</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            background-color: #141c3a;
+            font-family: 'Nunito', sans-serif;
+            width: 70%;
+            margin: auto;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            margin-top: 64px;
+        }
+
+        #fortune {
+            color: #EFBB24;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        #buttonContainer {
+            width: fit-content;
+            margin: auto;
+        }
+
+        #fortuneButton {
+            padding: 10px;
+            font-size: 16px;
+            background: white;
+            border: 5px solid #D0104C;
+            border-radius: 5px;
+            color: #141c3a;
+            cursor: pointer;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+</head>
+
+<body>
+    <h1>Click to see your daily fortune!</h1>
+    <p id="fortune"></p>
+    <div id="buttonContainer">
+        <button id="fortuneButton">Let me see!</button>
+    </div>
+
+    <script>
+        let fortunes = ["A beautiful, smart, and loving person will be coming into your life.",
+            "A fresh start will put you on your way.",
+            "A golden egg of opportunity falls into your lap this month.",
+            "A smile is your personal welcome mat.",
+            "All your hard work will soon pay off."
+        ]
+
+        let button = document.getElementById('fortuneButton');
+        let fortune = document.getElementById('fortune');
+
+        function fortuneSelector() {
+            let randomFortune = Math.floor(Math.random() * fortunes.length);
+            return fortunes[randomFortune];
+        }
+
+        function showFortune() {
+            fortune.innerHTML = fortuneSelector();
+            button.innerHTML = "Come back tomorrow!";
+            button.style.cursor = "default";
+
+            //add your code here
+            /**
+             * Check out this website that shows your daily fortune. But the website is broken! 
+             * You should only be able to see your daily fortune once, but you will see that you can keep pressing the button to get a new fortune. Y
+             * ou need to use the .removeEventListener() method after a fortune is displayed.
+             */
+             
+            button.removeEventListener('click', showFortune);
+        }
+
+        button.addEventListener('click', showFortune);
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chore Door!</title>
+    <link href="./Chore Door.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+    <div class="header">
+        <img src="https://content.codecademy.com/projects/chore-door/images/logo.svg">
+    </div>
+
+    <div class="title-row">
+        <img src="https://content.codecademy.com/projects/chore-door/images/star.svg">
+        <p class="instructions-title">Instructions</p>
+        <img src="https://content.codecademy.com/projects/chore-door/images/star.svg">
+    </div>
+
+    <table class="instructions-row">
+        <tr>
+            <td class="instructions-number">1</td>
+            <td class="instructions-text">Hiding behind one of these doors is the ChoreBot.</td>
+        </tr>
+        <tr>
+            <td class="instructions-number">2</td>
+            <td class="instructions-text">Your mission is to open all of the doors without running into the ChoreBot.
+            </td>
+        </tr>
+        <tr>
+            <td class="instructions-number">3</td>
+            <td class="instructions-text">If you manage to avoid the ChoreBot until you open the very last door, you
+                win!</td>
+        </tr>
+        <tr>
+            <td class="instructions-number">4</td>
+            <td class="instructions-text">See if you can score a winning streak!</td>
+        </tr>
+    </table>
+
+    <div class="door-row">
+        <img id="door1" class="door-frame"
+            src="https://content.codecademy.com/projects/chore-door/images/closed_door.svg">
+        <img id="door2" class="door-frame"
+            src="https://content.codecademy.com/projects/chore-door/images/closed_door.svg">
+        <img id="door3" class="door-frame"
+            src="https://content.codecademy.com/projects/chore-door/images/closed_door.svg">
+    </div>
+
+    <div id="start" class="start-row">Good luck!</div>
+
+    <script>
+
+        // Access HTML elements
+
+        let botDoorPath = 'https://content.codecademy.com/projects/chore-door/images/robot.svg';
+        let beachDoorPath = 'https://content.codecademy.com/projects/chore-door/images/beach.svg';
+        let spaceDoorPath = 'https://content.codecademy.com/projects/chore-door/images/space.svg';
+        let closedDoorPath = 'https://content.codecademy.com/projects/chore-door/images/closed_door.svg';
+
+        let numClosedDoors = 3;
+        let openDoor1;
+        let openDoor2;
+        let openDoor3;
+        let currentlyPlaying = true;
+
+        // Define game logic to check doors, progress game, end game, and choose a random chore door
+
+
+        /** 1. Getting Started */
+        let doorImage1 = document.getElementById('door1');
+        let doorImage2 = document.getElementById('door2');
+        let doorImage3 = document.getElementById('door3');
+        let startButton = document.getElementById('start');
+
+        
+        /** 2. Checking Doors */
+        function isClicked(door){
+
+            if (door.src === closedDoorPath){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+        function isBot(door) {
+            if (door.src === botDoorPath){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+        /** 3. Writing Play and Game Over Logic */
+        function gameOver(status){
+            if (status === 'win'){
+                startButton.innerHTML = 'You win! Play again?';
+            }
+            else{
+                startButton.innerHTML = 'Game over! Play again?';
+            }
+            currentlyPlaying = false;
+        }
+
+        function playDoor(door){
+            numClosedDoors = numClosedDoors - 1;
+            if (numClosedDoors === 0){
+                gameOver('win');
+            }
+
+            if ( isBot(door)){
+                gameOver();
+            }
+        }
+
+
+        /** 4. Choosing a Random Chore Door */ 
+        function randomChoreDoorGenerator(){
+            let choreDoor = Math.floor(Math.random() * numClosedDoors);
+
+            if (choreDoor === 0){
+                openDoor1 = botDoorPath;
+                openDoor2 = beachDoorPath;
+                openDoor3 = spaceDoorPath;
+            }
+            else if (choreDoor === 1){
+                openDoor1 = beachDoorPath;
+                openDoor2 = botDoorPath;
+                openDoor3 = spaceDoorPath;
+            }
+            else{
+                openDoor1 = beachDoorPath;
+                openDoor2 = spaceDoorPath;
+                openDoor3 = botDoorPath;
+            }
+        }
+
+        /** 5. Starting the Game */
+        function startRound(){
+            doorImage1.src = closedDoorPath;
+            doorImage2.src = closedDoorPath;
+            doorImage3.src = closedDoorPath;
+
+            numClosedDoors = 3;
+            currentlyPlaying = true;
+            startButton.innerHTML = 'Good Luck';
+            randomChoreDoorGenerator();
+        }
+
+        startRound();
+
+
+
+
+        doorImage1.onclick = () => {
+            if (currentlyPlaying && isClicked(doorImage1)) {
+                doorImage1.src = openDoor1;
+                playDoor(doorImage1);
+            }
+        }
+
+        doorImage2.onclick = () => {
+            if (currentlyPlaying && isClicked(doorImage2)) {
+                doorImage2.src = openDoor2;
+                playDoor(doorImage2);
+            }
+        }
+
+        doorImage3.onclick = () => {
+            if (currentlyPlaying && isClicked(doorImage3)) {
+                doorImage3.src = openDoor3;
+                playDoor(doorImage3);
+            }
+        }
+
+        startButton.onclick = () => {
+            if (currentlyPlaying === false) {
+                startRound();
+            }
+        }
+
+// Start a game round
+
+
+    </script>
+
+</body>
+
+</html>

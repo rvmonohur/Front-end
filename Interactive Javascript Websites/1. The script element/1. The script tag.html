@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .btn {
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+
+    .btn.picture {
+      background-color: #4CAF50;
+    }
+
+    .btn.text {
+      background-color: rgb(204, 228, 243);
+    }
+
+  </style>
+</head>
+  
+<body>
+	<section class = "container">
+  	<img src = "./car.jpeg" id= "myImage">  
+    <button type="button" onclick="blooming()" class="btn picture" > Change Picture </button>
+
+    <button type="button" onclick="changeFontStyling()" class="btn text" > Change TEXT styling </button>
+
+	</section>
+
+  <script>
+		function blooming() {
+
+      var image = document.getElementById('myImage');
+
+      if (image.src.match("car")) {
+        image.src = "./quote.jpg";
+      } else {
+        image.src = "./car.jpeg";
+      }    
+    }
+
+
+    function changeFontStyling(){
+      let newColor = '';
+      let newFont = ''; 
+      let x = Math.floor(Math.random()*7); 
+      switch (x){
+        case 0:
+          newColor = 'red';
+          newFont = 'Times New Roman'; 
+          break;
+        case 1: 
+          newColor = 'blue';
+          newFont = 'Florence, cursive'; 
+          break;
+        case 2:
+          newColor = 'yellow';
+          newFont = 'Verdana';
+          break; 
+        case 3:
+          newColor= 'purple';
+          newFont = 'Courier New';
+          break
+        case 4:
+          newColor = 'cyan';
+          newFont = 'Georgia'; 
+          break;
+        case 5:
+            newColor = 'maroon';
+            newFont = 'Palatino';
+            break;
+        case 6: 
+            newColor = 'lime';
+            newFont = 'Impact';
+            break;
+      }
+      var elem = document.getElementsByClassName('btn text')[0];
+      elem.style.color = newColor;
+      elem.style.fontFamily = newFont; 
+    }
+
+  </script>
+</body>  
+</html>
