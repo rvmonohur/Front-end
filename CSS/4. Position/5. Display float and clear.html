@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .green-section {
+            background-color: green;
+            width: 50%;
+            height: 150px;
+        }
+
+        .orange-section {
+            background-color: orange;
+            width: 50%;
+
+            /* Floated elements must have a width specified */
+            float: right;
+            height: 150px;
+        }
+
+        .question {
+            text-align: center;
+            position: relative;
+            top: 40px;
+
+            /* The clear property specifies how elements should behave when they bump into each other on the page */
+            clear: both;
+        }
+
+        .answer {
+            border: 1px solid #466995;
+            margin: 20px;
+            display: inline-block;
+            float:right;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>My Awesome Website</h1>
+
+    <p>Hello World</p>
+
+    <div class="green-section">
+        Green
+    </div>
+
+    <div class="orange-section">
+        Orange
+    </div>
+
+
+
+    <div class="question">
+        <h4>Question 3</h4>
+        <h2>I purchase clothing online regularly.</h2>
+
+        <div class="answer">
+            <h3>Disagree</h3>
+        </div>
+
+        <div class="answer">
+            <h3>Neutral</h3>
+        </div>
+
+        <div class="answer">
+            <h3>Agree</h3>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

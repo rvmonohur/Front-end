@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Terminal - Your Source for Fact-Based News</title>
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Raleway:100,200,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="1. box model.css">
+
+
+  <style>
+    
+    /* Height and Width */
+    #banner {
+        height: 700px;
+    }
+
+    .pull-quote {
+        width: 350px;
+    }
+
+    #banner .content h1{
+        width: 400px;
+    }
+
+    /* Borders */
+    h2 {
+        border:  1px dotted coral
+    }
+
+    #banner .content h1{
+        border: 3px solid white;
+    }
+
+    /* Border Radius */
+    #banner .content h1{
+        border-radius: 15px;
+    }
+
+    /* Padding 
+    Padding is like the space between a picture and the frame surrounding it.
+    */
+    .navigation li {
+        padding: 20px;
+    }
+    .share a {
+        padding: 14px;
+    }
+    h2 {
+        padding-bottom: 20px;
+        padding-top: 20px;
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+
+    /* Padding Shorthand 
+    
+    Order -> Top Right Bottom Left
+
+    padding: 5px 10px 20px -> Top (5px) Right&Left(10px) Bottom(20px)
+
+    padding: 5px 10px; -> Top&Bottom(5px) Right&Left(10px)   
+    */
+    h2 {
+        padding: 20px 30px;
+    }
+
+    /* Marging
+    Margin refers to the space directly outside of the box.s
+
+    p {
+    border: 1px solid aquamarine;
+    margin: 20px;
+    }
+    The code in the example above will place 20 pixels of space on the outside of the paragraph’s box on all four sides. 
+    This means that other HTML elements on the page cannot come within 20 pixels of the paragraph’s border.
+    */
+    .share a {
+        margin: 10px;
+    }
+
+    /* Margin Auto 
+    margin: 0 auto; will center the divs in their containing elements. The 0 sets the top and bottom margins to 0 pixels. 
+    The auto value instructs the browser to adjust the left and right margins until the element is centered within its containing element.
+
+    In order to center an element, a width must be set for that element. 
+    Otherwise, the width of the div will be automatically set to the full width of its containing element, like the <body>, for example
+    */
+    .pull-quote {
+        width: 350px;
+        margin:0 auto;
+    }
+
+  </style>
+
+</head>
+<body>
+
+  <nav class="navigation">
+    <ul>
+      <li>LOCAL</li>
+      <li>NATIONAL</li>
+      <li class="logo">THE TERMINAL</li>
+      <li>GLOBAL</li>
+      <li>OPED</li>
+      <li class="donate">DONATE</li>
+    </ul>
+  </nav>
+
+  <div id="banner">
+    <div class="content">
+      <h1>Conservation Efforts at Lake Tahoe Being Praised by Nation's Leaders</h1>
+      <p>Does this work change the style</p>
+    </div>
+  </div>
+
+  <div id="main" class="content">
+    <h3>THE STATE'S LATEST CONSERVATION EFFORTS ARE BEING HERALDED BY NATION'S TOP LEADERS AS GROUNDBREAKING AND FORWARD THINKING.</h3>
+    <span class="byline">WRITTEN BY: JAMES JAYCE</span>
+    <p>Until recently, construction on the banks of the Lake had been largely under the control of real estate developers. Construction activities have resulted in a clouding of the lake's blue waters. Currently, the Tahoe Regional Planning Agency is regulating construction along the shoreline and has won two Federal Supreme Court battles over recent decisions. These regulations are unpopular with many residents, especially those in the Tahoe Lakefront Homeowners Association.</p>
+
+    <p>The League to Save Lake Tahoe (Keep Tahoe Blue) has been an environmental watchdog in the Lake Tahoe Basin for 50 years. Founded when a proposal to build a four-lane highway around the lake (with a bridge over the entrance to Emerald Bay) was proposed in 1957, the League has thwarted poorly designed development projects and environmentally unsound planning. The League embraces responsible and diversified use of the Lake's resources while protecting and restoring its natural attributes.</p>
+
+    <div class="pull-quote">
+      <h2>"THE LEAGUE EMBRACES RESPONSIBLE AND DIVERSIFIED USE OF THE LAKE'S RESOURCES WHILE PROTECTING AND RESTORING ITS NATURAL ATTRIBUTES"</h2>
+    </div>
+
+    <p>Since 1980, the Lake Tahoe Interagency Monitoring Program (LTIMP) has been measuring stream discharge and concentrations of nutrients and sediment in up to 10 tributary streams in the Lake Tahoe Basin, California-Nevada. The objectives of the LTIMP are to acquire and disseminate the water quality information necessary to support science-based environmental planning and decision making in the basin. The LTIMP is a cooperative program with support from 12 federal and state agencies with interests in the Tahoe Basin. This data set, together with more recently acquired data on urban runoff water quality, is being used by the Lahontan Regional Water Quality Control Board to develop a program (mandated by the Clean Water Act) to limit the flux of nutrients and fine sediment to the Lake.</p>
+
+    <p>UC Davis remains a primary steward of the lake. The UC Davis Tahoe Environmental Research Center is dedicated to research, education and public outreach, and to providing objective scientific information for restoration and sustainable use of the Lake Tahoe Basin. Each year, it produces a well-publicized "State of the Lake" assessment report.</p>
+  </div>
+
+  <div class="share">
+    <a href="#">SHARE</a>
+    <a href="#">FAVORITE</a>
+    <a href="#">READ</a>
+  </div>
+
+</body>
+</html>
